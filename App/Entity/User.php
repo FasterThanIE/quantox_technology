@@ -25,6 +25,21 @@ class User
     protected $name;
 
     /**
+     * @var Grade
+     * @ORM\OneToMany(targetEntity="Grade", mappedBy="user")
+     * @ORM\JoinColumn(name="id", referencedColumnName="user_id")
+     */
+    protected $grades;
+
+    /**
+     * @return Grade
+     */
+    public function getGrade()
+    {
+        return $this->grades;
+    }
+
+    /**
      * @return int
      */
     public function getId(): int
