@@ -40,6 +40,13 @@ class Grade
     protected $userId;
 
     /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="grades")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+
+
+    /**
      * @param string $type
      * @throws InvalidTypeException
      */

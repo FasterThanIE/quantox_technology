@@ -34,7 +34,7 @@ class User
     /**
      * @return Grade
      */
-    public function getGrade()
+    public function getGrades()
     {
         return $this->grades;
     }
