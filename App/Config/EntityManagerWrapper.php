@@ -18,34 +18,21 @@ class EntityManagerWrapper
     private static $instance = null;
 
     /**
-     * @var string[]
-     */
-    private $config = [
-        'dbname' => 'quantox',
-        'user' => 'root',
-        'password' => '',
-        'host' => 'localhost',
-        'driver' => 'pdo_mysql',
-    ];
-
-    /**
-     * EntityManagerWrapper constructor.
+     * @return EntityManager|null
      * @throws ORMException
      */
-    private function __construct()
-    {
-        $setup = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/App"), true, null, null, false);
-        return EntityManager::create($this->config, $setup);
-    }
-
-    /**
-     * @return EntityManagerWrapper|null
-     */
-    public static function getInstance() : ?EntityManagerWrapper
+    public static function getInstance() : ?EntityManager
     {
         if (self::$instance == null)
         {
-            self::$instance = new EntityManagerWrapper();
+            $setup = Setup::createAnnotationMetadataConfiguration([$_SERVER['DOCUMENT_ROOT'] . "/App"], true, null, null, false);
+            self::$instance = EntityManager::create([
+                'dbname' => 'quantox',
+                'user' => 'root',
+                'password' => '',
+                'host' => 'localhost',
+                'driver' => 'pdo_mysql',
+            ], $setup);
         }
 
         return self::$instance;
