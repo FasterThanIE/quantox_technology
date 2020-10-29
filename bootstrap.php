@@ -10,7 +10,7 @@ $isDevMode = true;
 $proxyDir = null;
 $cache = null;
 $useSimpleAnnotationReader = false;
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/app"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
+$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/App"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
 // or if you prefer yaml or XML
 //$config = Setup::createXMLMetadataConfiguration(array(__DIR__."/config/xml"), $isDevMode);
 //$config = Setup::createYAMLMetadataConfiguration(array(__DIR__."/config/yaml"), $isDevMode);
@@ -21,5 +21,5 @@ $conn = array(
     'path' => __DIR__ . '/db.sqlite',
 );
 
-// obtaining the entity manager
+// obtaining the Entity manager
 $entityManager = EntityManager::create($conn, $config);

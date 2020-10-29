@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Entity;
+namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -55,8 +55,4 @@ class User
     {
         $this->name = $name;
     }
-
-
-
-
 }
