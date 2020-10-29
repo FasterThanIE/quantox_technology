@@ -19,19 +19,19 @@ class CSM implements Board
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
-    protected $id;
+    private $id;
 
     /**
      * @var int
      * @ORM\Column(type="integer", length=2)
      */
-    protected $grade;
+    private $grade;
 
     /**
      * @ORM\Column(type="integer")
      * @var int
      */
-    protected $userId;
+    private $userId;
 
     /**
      * @return int
