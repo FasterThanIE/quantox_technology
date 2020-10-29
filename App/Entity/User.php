@@ -64,6 +64,15 @@ class User
     }
 
     /**
+     * @param string $type
+     * @return bool
+     */
+    private function isValidType(string $type)
+    {
+        return in_array($type, [self::CSM_TYPE, self::CSMB_TYPE]);
+    }
+
+    /**
      * @param int $id
      */
     public function setId(int $id): void
