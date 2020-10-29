@@ -19,7 +19,7 @@ class HomeController
      */
     public static function handleGrade(int $userId) : void
     {
-        $response = [];
+        $response = "Nemate nikakvih ocena";
 
         $em = EntityManagerWrapper::getInstance();
 
@@ -27,10 +27,12 @@ class HomeController
 
         if($user->getGrades())
         {
-            $response = new OutputModel($user);
+            $output = new OutputModel();
+            $fileName = $output->generateOutput($user);
+            $response = "Uspesno smo generisali fajl sa ocenama ".$fileName;
         }
 
-        echo json_encode($response);
+        echo $response;
 
     }
 

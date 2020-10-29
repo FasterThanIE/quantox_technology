@@ -12,19 +12,16 @@ use App\Entity\User;
 class OutputModel
 {
 
-    const OUTPUT_JSON = "json";
-    const OUTPUT_XML  = "xml";
-
     /**
-     * OutputModel constructor.
      * @param User $user
+     * @return string
      */
-    public function __construct(User $user)
+    public function generateOutput(User $user)
     {
         $type = $this->determineType($user->getGrades());
         $allGrades = $this->getAllGrades($user->getGrades());
         $averageGrade = $this->getAverageGrade($allGrades);
-        $this->processExport($user, $type, $allGrades, $averageGrade);
+        return $this->processExport($user, $type, $allGrades, $averageGrade);
     }
 
     /**
@@ -39,7 +36,7 @@ class OutputModel
         $fileName = str_shuffle(time());
         if($type == Grade::CSM_TYPE)
         {
-            file_put_contents($fileName.".json", [
+            file_put_contents("generated_files/".$fileName.".json", [
                 'student_id' => $user->getId(),
                 'student_name' => $user->getName(),
                 'grades' => implode(",",$allGrades),
@@ -63,7 +60,7 @@ class OutputModel
         $allGrades = [];
         foreach ($grades as $grade)
         {
-            $allGrades[] = $grade;
+            $allGrades[] = $grade->getGrade();
         }
         return $allGrades;
     }
