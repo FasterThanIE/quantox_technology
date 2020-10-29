@@ -7,6 +7,9 @@ use App\Entity\User;
 interface Board
 {
 
+    const MAX_GRADE = 10;
+    const MIN_GRADE = 5;
+
     /**
      * @return int
      */

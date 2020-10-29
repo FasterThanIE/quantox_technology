@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Interfaces\Board;
 use Doctrine\ORM\Mapping as ORM;
+use MinMaxGradeException;
 
 /**
  * @ORM\Entity
@@ -42,9 +43,14 @@ class CSM implements Board
 
     /**
      * @param int $grade
+     * @throws MinMaxGradeException
      */
     public function setGrade(int $grade): void
     {
+        if($grade > self::MAX_GRADE || $grade < self::MIN_GRADE)
+        {
+            throw new MinMaxGradeException("Grade cannot be bellow ".self::MIN_GRADE." or above ".self::MAX_GRADE);
+        }
         $this->grade = $grade;
     }
 
