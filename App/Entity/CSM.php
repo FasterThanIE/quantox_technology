@@ -10,36 +10,13 @@ use MinMaxGradeException;
  * @ORM\Entity
  * @ORM\Table(name="csm")
  */
-class CSM implements Board
+class CSM extends Grade
 {
-
-    /**
-     * @var int
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
-     */
-    private $id;
-
     /**
      * @var int
      * @ORM\Column(type="integer", length=2)
      */
     private $grade;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $userId;
-
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
     /**
      * @param int $grade
@@ -60,29 +37,5 @@ class CSM implements Board
     public function getGrade(): int
     {
         return $this->grade;
-    }
-
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId): void
-    {
-        $this->userId = $userId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getUserId(): int
-    {
-        return $this->getUserId();
-    }
-
-    /**
-     * @return User
-     */
-    public function getUser(): User
-    {
-        // TODO: Add relation..
     }
 }

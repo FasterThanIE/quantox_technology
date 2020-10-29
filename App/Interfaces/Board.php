@@ -6,10 +6,6 @@ use App\Entity\User;
 
 interface Board
 {
-
-    const MAX_GRADE = 10;
-    const MIN_GRADE = 5;
-
     /**
      * @return int
      */
@@ -24,20 +20,5 @@ interface Board
      * @return int
      */
     public function getGrade() : int;
-
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId) : void;
-
-    /**
-     * @return int
-     */
-    public function getUserId() : int;
-
-    /**
-     * @return User
-     */
-    public function getUser() : User;
 
 }

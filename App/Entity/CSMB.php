@@ -10,28 +10,14 @@ use MinMaxGradeException;
  * @ORM\Entity
  * @ORM\Table(name="csmb")
  */
-class CSMB implements Board
+class CSMB extends Grade implements Board
 {
-
-    /**
-     * @var int
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue
-     */
-    private $id;
 
     /**
      * @var int
      * @ORM\Column(type="integer", length=2)
      */
     private $grade;
-
-    /**
-     * @ORM\Column(type="integer")
-     * @var int
-     */
-    private $userId;
 
     /**
      * @return int
@@ -60,22 +46,6 @@ class CSMB implements Board
     public function getGrade(): int
     {
         return $this->grade;
-    }
-
-    /**
-     * @param int $userId
-     */
-    public function setUserId(int $userId): void
-    {
-        $this->userId = $userId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getUserId(): int
-    {
-        return $this->getUserId();
     }
 
     /**
