@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="csmb")
  */
-class CSM implements Board
+class CSMB implements Board
 {
 
     /**
