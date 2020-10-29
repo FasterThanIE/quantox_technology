@@ -47,12 +47,4 @@ class CSMB extends Grade implements Board
     {
         return $this->grade;
     }
-
-    /**
-     * @return User
-     */
-    public function getUser(): User
-    {
-        // TODO: Add relation..
-    }
 }
