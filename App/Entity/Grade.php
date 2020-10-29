@@ -35,9 +35,9 @@ class Grade
 
     /**
      * @var int
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="user_id")
      */
-    private $userId;
+    protected $userId;
 
     /**
      * @param string $type
